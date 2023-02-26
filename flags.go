@@ -56,7 +56,8 @@ func ParseFlags() (Config, error) {
 	flag.Parse()
 
 	if len(config.BootstrapPeers) == 0 {
-		config.BootstrapPeers = dht.DefaultBootstrapPeers
+		config.BootstrapPeers = make([]maddr.Multiaddr,0)
+		//config.BootstrapPeers = dht.DefaultBootstrapPeers
 	}
 
 	return config, nil
